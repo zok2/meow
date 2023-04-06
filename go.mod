@@ -1,3 +1,3 @@
-module  github.com/flipped-aurora/meow
+module meow
 
 go 1.19
