@@ -1,0 +1,76 @@
+# system configuration
+system:
+  env: public # Change to "develop" to skip authentication for development mode
+  addr: 8888
+  db-type: mysql
+  oss-type: local # 控制oss选择走本地还是 七牛等其他仓 自行增加其他oss仓可以在 server/utils/upload/upload.go 中 NewOss函数配置
+  use-redis: false # 使用redis
+  use-multipoint: false
+  # IP限制次数 一个小时15000次
+  iplimit-count: 15000
+  #  IP限制一个小时
+  iplimit-time: 3600
+  #  路由全局前缀
+  router-prefix: ""
+
+
+# 数据库配置
+mysql:
+  path: ""
+  port: ""
+  config: ""
+  db-name: ""
+  username: ""
+  password: ""
+  max-idle-conns: 10
+  max-open-conns: 100
+  log-mode: ""
+  log-zap: false
+
+db-list:
+  - disable: true # 是否禁用
+    type: "" # 数据库的类型,目前支持mysql、pgsql、mssql、oracle
+    alias-name: "" # 数据库的名称,注意: alias-name 需要在db-list中唯一
+    path: ""
+    port: ""
+    config: ""
+    db-name: ""
+    username: ""
+    password: ""
+    max-idle-conns: 10
+    max-open-conns: 100
+    log-mode: ""
+    log-zap: false
+# 缓存配置
+redis:
+  host: localhost
+  port: 3306
+  password: ""
+
+zap:
+  level: info
+  format: console
+  prefix: "[github.com/flipped-aurora/gin-vue-admin/server]"
+  director: log
+  show-line: true
+  encode-level: LowercaseColorLevelEncoder
+  stacktrace-key: stacktrace
+  log-in-console: true
+
+# jwt configuration
+jwt:
+  signing-key: qmPlus
+  expires-time: 7d
+  buffer-time: 1d
+  issuer: qmPlus
+
+# email configuration
+email:
+  to: xxx@qq.com
+  port: 465
+  from: xxx@163.com
+  host: smtp.163.com
+  is-ssl: true
+  secret: xxx
+  nickname: test
+
