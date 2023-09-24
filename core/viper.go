@@ -1,7 +1,6 @@
 package core
 
 import (
-	"flag"
 	"fmt"
 	"github.com/fsnotify/fsnotify"
 	"github.com/gin-gonic/gin"
@@ -11,10 +10,7 @@ import (
 	"os"
 )
 
-func Viper(path ...string) *viper.Viper {
-	var config string
-	flag.StringVar(&config, "c", "", "choose config file.")
-	flag.Parse()
+func Viper(config string) *viper.Viper {
 	if config == "" {
 		if configEnv := os.Getenv(internal.ConfigEnv); configEnv == "" {
 			switch gin.Mode() {
@@ -33,10 +29,8 @@ func Viper(path ...string) *viper.Viper {
 			fmt.Printf("您正在使用%s环境变量,config的路径为%s\n", internal.ConfigEnv, config)
 		}
 	} else { // 函数传递的可变参数的第一个值赋值于config
-		config = path[0]
 		fmt.Printf("您正在使用func Viper()传递的值,config的路径为%s\n", config)
 	}
-
 	v := viper.New()
 	v.SetConfigFile(config)
 	v.SetConfigType("yaml")

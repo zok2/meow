@@ -50,7 +50,7 @@ redis:
 zap:
   level: info
   format: console
-  prefix: "[github.com/flipped-aurora/gin-vue-admin/server]"
+  prefix: "[github.com/zok2/meow]"
   director: log
   show-line: true
   encode-level: LowercaseColorLevelEncoder
@@ -74,3 +74,6 @@ email:
   secret: xxx
   nickname: test
 
+local:
+  path: uploads/file
+  store-path: uploads/file

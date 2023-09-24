@@ -5,7 +5,10 @@ type Server struct {
 	// gorm
 	Mysql  Mysql           `mapstructure:"mysql" json:"mysql" yaml:"mysql"`
 	DBList []SpecializedDB `mapstructure:"db-list" json:"db-list" yaml:"db-list"`
-	System System          `mapstructure:"system" json:"system" yaml:"system"`
+	Redis  Redis           `mapstructure:"redis" json:"redis" yaml:"redis"`
 
-	Zap Zap `mapstructure:"zap" json:"zap" yaml:"zap"`
+	Local Local `mapstructure:"local" json:"local" yaml:"local"`
+
+	Zap    Zap    `mapstructure:"zap" json:"zap" yaml:"zap"`
+	System System `mapstructure:"system" json:"system" yaml:"system"`
 }
